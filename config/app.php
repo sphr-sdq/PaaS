@@ -2,6 +2,8 @@
 
 return [
 
+    'version' => env('APP_VERSION' , 'UNKNOWN'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

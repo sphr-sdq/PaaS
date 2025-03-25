@@ -17,7 +17,7 @@ const props = withDefaults(
         class?: HTMLAttributes['class'];
     }>(),
     {
-        side: 'left',
+        side: 'right',
         variant: 'sidebar',
         collapsible: 'offcanvas',
     },
@@ -29,7 +29,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 <template>
     <div
         v-if="collapsible === 'none'"
-        :class="cn('flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground', props.class)"
+        :class="cn('flex h-full w-[--sidebar-width]  flex-col bg-sidebar text-sidebar-foreground ', props.class)"
         v-bind="$attrs"
     >
         <slot />
@@ -40,7 +40,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
             data-sidebar="sidebar"
             data-mobile="true"
             :side="side"
-            class="w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+            class="w-[--sidebar-width]  bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
             :style="{
                 '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
             }"
@@ -53,7 +53,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
     <div
         v-else
-        class="group peer hidden md:block"
+        class="group peer hidden md:block  "
         :data-state="state"
         :data-collapsible="state === 'collapsed' ? collapsible : ''"
         :data-variant="variant"
@@ -63,7 +63,7 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
         <div
             :class="
                 cn(
-                    'relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear',
+                    'relative h-svh w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear ',
                     'group-data-[collapsible=offcanvas]:w-0',
                     'group-data-[side=right]:rotate-180',
                     variant === 'floating' || variant === 'inset'
